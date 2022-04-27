@@ -16,7 +16,7 @@ function App() {
     // Important! Always set the container height explicitly
     <div style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyAesij1ciIH5y7VU9bIMSru4qQ3wp-yIV4' }}
+        bootstrapURLKeys={{ key: process.env.React_App_GOOGLE_MAP_API_KEY }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
         debounced={true}
