@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import GoogleMapReact from 'google-map-react';
+
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 function App() {
+  const defaultProps = {
+    center: {
+      lat: 59.95,
+      lng: 30.33,
+    },
+    zoom: 11,
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // Important! Always set the container height explicitly
+    <div style={{ height: '100vh', width: '100%' }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: 'AIzaSyAesij1ciIH5y7VU9bIMSru4qQ3wp-yIV4' }}
+        defaultCenter={defaultProps.center}
+        defaultZoom={defaultProps.zoom}
+        debounced={true}
+      >
+        <AnyReactComponent lat={59.955413} lng={30.337844} text='My Marker' />
+      </GoogleMapReact>
     </div>
   );
 }
